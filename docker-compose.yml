@@ -15,7 +15,11 @@ services:
       dockerfile: Dockerfile.agent
       context: .
     command: "-master http://jenkins:8080 -username jenkins -password CHANGEME -executors 2 -labels docker"
-
+    volumes:
+      - ./jenkins_home:/var/jenkins_home #persist all the data
+      - /var/run/docker.sock:/var/run/docker.sock #Docker on Docker
+      - ${USER_M2}:/root/.m2 #requires .env file
+      
   gitea:
     build:
       dockerfile: Dockerfile.gitea
