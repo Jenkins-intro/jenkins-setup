@@ -14,7 +14,7 @@ services:
     build:
       dockerfile: Dockerfile.agent
       context: .
-    command: "-master http://jenkins:8080 -username jenkins -password CHANGEME -executors 2 -labels docker swarm cloud"
+    command: "-master http://jenkins:8080 -username jenkins -password CHANGEME -executors 2 -labels docker"
 
   gitea:
     build:

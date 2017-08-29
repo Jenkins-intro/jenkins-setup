@@ -5,7 +5,8 @@ pipeline {
   stages {
     stage("Prepare") {
       steps {
-        sh 'configure.sh'
+        echo "Still Working on this"
+        //sh 'configure.sh'
       }
     }
     stage("Compose") {

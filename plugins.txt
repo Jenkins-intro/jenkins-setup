@@ -7,3 +7,4 @@ git
 gitea
 swarm
 blueocean
+role-strategy
