@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+
+  jenkins:
+    build:
+      dockerfile: Dockerfile.jenkins
+      context: .
+    ports:
+      - ${UI_PORT:-8080}:8080
+      - ${AGENTS_PORT:-50000}:50000
+
+  agent:
+    build:
+      dockerfile: Dockerfile.agent
+      context: .
+    command: "-master http://jenkins:8080 -username jenkins -password CHANGEME -executors 2 -labels docker swarm cloud"
+
+  gitea:
+    build:
+      dockerfile: Dockerfile.gitea
+      context: .
+    ports:
+      - 3000:3000

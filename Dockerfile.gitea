@@ -1,0 +1,3 @@
+FROM gitea/gitea
+
+COPY data/ /data/
